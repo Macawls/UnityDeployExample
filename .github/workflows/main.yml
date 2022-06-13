@@ -18,42 +18,45 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
+      
       # Cache Files
       - uses: actions/cache@v2
         with:
           path: Library
           key: Library-${{ matrix.targetPlatform }}
           restore-keys: Library-
+      
       # Build Unity Project
       - uses: game-ci/unity-builder@v2
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
+      
       # Upload Artifact
       - uses: actions/upload-artifact@v2
         with:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
-      # Upload to Itch
-  releaseWebGLToItch:
-  - name: Deploy WebGL Build To Itch.IO
-  - needs: buildForAllSupportedPlatforms
-  - uses: manleydev/butler-publish-itchio-action@master
-  env:
-    BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-    CHANNEL: html5
-    ITCH_GAME: DeployExample
-    ITCH_USER: Macawls
-    PACKAGE: build/WebGL
+      
+      # Upload to WebGL To Itch.IO
+      if: ${{ matrix.targetPlatform }} == 'WebGL'
+      - uses: manleydev/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: html5
+          ITCH_GAME: deployexample
+          ITCH_USER: Macawls
+          PACKAGE: build/${{ matrix.targetPlatform }}
+      
+      # Upload to WebGL To Itch.IO
+      if: ${{ matrix.targetPlatform }} == 'StandaloneWindows64'
+      - uses: manleydev/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: html5
+          ITCH_GAME: deployexample
+          ITCH_USER: Macawls
+          PACKAGE: build/${{ matrix.targetPlatform }}
 
-  releaseWindowsToItch:
-  - name: Deploy Windows Build To Itch.IO
-  - needs: buildForAllSupportedPlatforms
-  - uses: manleydev/butler-publish-itchio-action@master
-  env:
-    BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-    CHANNEL: win
-    ITCH_GAME: DeployExample
-    ITCH_USER: Macawls
-    PACKAGE: build/StandaloneWindows64
+      
