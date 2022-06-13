@@ -1,38 +1,47 @@
-name: Build project 🎮
+name: Build and Deploy 🎮
 
-on: [push, pull_request]
+on: [push, pull_request] # events that will trigger the workflow
 
 jobs:
   buildForAllSupportedPlatforms:
-    name: Build for ${{ matrix.targetPlatform }}
+    name: Build and Deploy for ${{ matrix.targetPlatform }}
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: false
+      fail-fast: false # if one build fails, other platforms will still be built
       matrix:
         targetPlatform:
           - StandaloneWindows64
           - WebGL
+          - StandaloneOSX
+        
     steps:
+      # Fetch Files  
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
           lfs: true
+      
+      # Cache Unity Library Folder
       - uses: actions/cache@v2
         with:
           path: Library
           key: Library-${{ matrix.targetPlatform }}
           restore-keys: Library-
+      
+      # Build Unity Game
       - uses: game-ci/unity-builder@v2
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
       
-      - uses: actions/upload-artifact@v2
-        with:
-          name: Build-${{ matrix.targetPlatform }}
-          path: build/${{ matrix.targetPlatform }}
-
+      # Upload Build as Artifacts
+      #- uses: actions/upload-artifact@v2
+      #  with:
+      #    name: Build-${{ matrix.targetPlatform }}
+      #    path: build/${{ matrix.targetPlatform }}
+      
+      # Publish to Itch.IO
       - uses: manleydev/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
