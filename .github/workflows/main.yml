@@ -13,35 +13,27 @@ jobs:
           - StandaloneWindows64
           - WebGL
     steps:
-      # Fetch Game Files
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
           lfs: true
-      
-      # Cache Files
       - uses: actions/cache@v2
         with:
           path: Library
           key: Library-${{ matrix.targetPlatform }}
           restore-keys: Library-
-      
-      # Build Unity Project
       - uses: game-ci/unity-builder@v2
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
-      
-      # Upload Artifact
       - uses: actions/upload-artifact@v2
         with:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
-      
-      # Upload to WebGL To Itch.IO
-      if: ${{ matrix.targetPlatform }} == 'WebGL'
+
       - uses: manleydev/butler-publish-itchio-action@master
+        if: ${{ matrix.targetPlatform }} == 'WebGL'
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: html5
@@ -49,9 +41,8 @@ jobs:
           ITCH_USER: Macawls
           PACKAGE: build/${{ matrix.targetPlatform }}
       
-      # Upload to WebGL To Itch.IO
-      if: ${{ matrix.targetPlatform }} == 'StandaloneWindows64'
       - uses: manleydev/butler-publish-itchio-action@master
+        if: ${{ matrix.targetPlatform }} == 'StandaloneWindows64'
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: html5
