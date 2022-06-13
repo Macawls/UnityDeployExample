@@ -45,7 +45,7 @@ jobs:
         if: ${{ matrix.targetPlatform }} == 'StandaloneWindows64'
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-          CHANNEL: html5
+          CHANNEL: windows
           ITCH_GAME: deployexample
           ITCH_USER: Macawls
           PACKAGE: build/${{ matrix.targetPlatform }}
