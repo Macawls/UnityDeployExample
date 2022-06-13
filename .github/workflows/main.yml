@@ -27,25 +27,16 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
+      
       - uses: actions/upload-artifact@v2
         with:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
 
       - uses: manleydev/butler-publish-itchio-action@master
-        if: ${{ matrix.targetPlatform }} == 'WebGL'
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-          CHANNEL: html5
-          ITCH_GAME: deployexample
-          ITCH_USER: Macawls
-          PACKAGE: build/${{ matrix.targetPlatform }}
-      
-      - uses: manleydev/butler-publish-itchio-action@master
-        if: ${{ matrix.targetPlatform }} == 'StandaloneWindows64'
-        env:
-          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-          CHANNEL: windows
+          CHANNEL: ${{ matrix.targetPlatform }}
           ITCH_GAME: deployexample
           ITCH_USER: Macawls
           PACKAGE: build/${{ matrix.targetPlatform }}
