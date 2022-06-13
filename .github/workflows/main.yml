@@ -40,10 +40,7 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           if: ${{ matrix.targetPlatform }} == 'WebGL'
-            CHANNEL: html5
-          if: ${{ matrix.targetPlatform }} == 'StandaloneWindows64'
-            CHANNEL: win
-          
+          CHANNEL: html5
           ITCH_GAME: DeployExample
           ITCH_USER: Macawls
-          PACKAGE: build/WebGL
+          PACKAGE: build/${{ matrix.targetPlatform }}
