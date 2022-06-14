@@ -63,7 +63,7 @@ ul li::before {
 # CI/CD for your Unity Projects 
 
 ### Working more efficiently as a Game Developer
-![h:300 center](images/cicd.png) 
+![h:300 center](https://i.imgur.com/NyXi2Xj.png) 
 
 
 ##### By Joshua Macauley ([@Macawls][macawls]) ![w:2em h:2em](https://avatars.githubusercontent.com/u/80009513?v=4) 
