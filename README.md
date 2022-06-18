@@ -18,7 +18,7 @@ Here's a repo with a bunch of templates https://github.com/github/gitignore
 wget https://macawls.dev/unityfiles/gitignore -o ".gitignore"
 ```
 [Download Git LFS](https://git-lfs.github.com/) \
-Install LFS in your repository.
+Install LFS in your repository:
 ```
 git lfs install
 ```
@@ -26,7 +26,7 @@ Use a .gitattributes file for LFS to tell it which files to track.
 ```
 wget https://macawls.dev/unityfiles/gitattributes -o ".gitattributes"
 ```
-All done! Have a look using:
+All done! Have a look at which files are going to be tracked using:
 ```
 git status
 ```
@@ -70,7 +70,7 @@ The workflow is meant to be run manually, defined by
 on:
   workflow_dispatch: {}
 ```
-Run the workflow under the actions tab and download the artifact. 
+Run the workflow under the actions tab and download the artifact once it's done.
 
 Sign into [Unity License](https://license.unity3d.com/) with your credentials and upload the artifact.
 
@@ -134,7 +134,7 @@ Only use the [allowed](https://docs.unity3d.com/ScriptReference/BuildTarget.html
 <p align="center">
   <img src="https://cdn.betterttv.net/emote/603c008d7c74605395f360da/3x">
 </p>
-If you want to embed the WebGL build to your Itch.IO Page tick this checkbox. 
+If you want to embed the WebGL build to your Itch.IO Page tick this checkbox. You'll only need to do this <strong>once</strong> because the build is tied to the WebGL <strong>channel</strong> in Itch.Io.
 
 ![](https://i.imgur.com/i5OoZXF.png)
 
