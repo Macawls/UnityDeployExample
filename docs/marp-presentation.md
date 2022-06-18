@@ -47,6 +47,7 @@ theme: gaia
     ul {
         font-size: 32px;
         list-style: none;
+        list-style-position: inside;
     }
 
     b, strong {
@@ -79,11 +80,11 @@ ul li::before {
 
 # A little bit about me 
 
-![h:260 center](https://i.imgur.com/AQhE3Pp.png)
+![h:260 center](https://macawls.dev/apu-gallery/apu/happyandcomfy.png)
 
 * I've always enjoyed messing with things!
 * Linux and Open-Source :heart:
-* DRY -> Don't repeat yourself!
+* DRY -> **Don't repeat yourself!**
 * RTFM -> [Read the fucking manual](http://readthefuckingmanual.com/)
 
 ---
@@ -137,10 +138,44 @@ ___
 # What can I do with GitHub Actions? 
 ### Many things!
 
-![bg right:40% h:600 center](https://i.imgur.com/tKw28I3.png)
+![bg right:40% h:600](https://i.imgur.com/tKw28I3.png)
+* Automatically **test** your game to make sure its ready for production.
+* Automatically **build** your game on the cloud.
 * Automatically **publish** your game to multiple stores!
 ---
 
+
+
+# Is it all free?
+
+### Pretty much!
+https://github.com/pricing
+
+
+The game in the example repository takes around **4 minutes** per **platform** (Windows, Web, Mac) to build and deploy.
+
+With the **free 2000 CI/CD minutes limit** that equates to a maximum of around **160 builds per month**! 
+
+![bg right:40% h:720](https://i.imgur.com/iIEdGWQ.jpg)
+
+---
+# Great! How do I get started? <!--fit-->
+## Easy Peasy!
+
+Have a look at this repository and follow the instructions.
+
+Customize it to your use case.
+
+Keep in mind this is **highly simplified** and **not** what you would do in a **proffessional environment**. Ideally you would a have dev branch and work on new features in there and then create releases, resolve issues for new features etc, etc. 
+
+https://github.com/Macawls/UnityDeployExample
+
+
+---
 # Hope you enjoyed! :v: <!--fit-->
 
-## Happy developing! 💻
+## Good luck for the Game Jam!
+![center h:330](https://macawls.dev/apu-gallery/apu/pepe.png)
+
+#### <br>For any queries contact me at [josh@macawls.dev](mailto:josh@macawls.dev)
+
