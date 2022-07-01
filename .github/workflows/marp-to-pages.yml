@@ -1,0 +1,29 @@
+name: marp-to-pages
+
+on:
+  push:
+    branches: [ based ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Marp Build
+        uses: docker://marpteam/marp-cli:v1.7.0
+        with:
+          args: -I presentation/ -o build/
+        env:
+          MARP_USER: root:root
+
+      - name: Rename Artifact
+        run: mv marp-presentation.html build/index.html
+
+      - name: Deploy production
+        if: ${{ github.event_name == 'push' }}
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: ./build/
