@@ -19,7 +19,7 @@ jobs:
           MARP_USER: root:root
 
       - name: Rename Artifact
-        run: mv marp-presentation.html build/index.html
+        run: mv build/marp-presentation.html build/index.html
 
       - name: Deploy production
         if: ${{ github.event_name == 'push' }}
