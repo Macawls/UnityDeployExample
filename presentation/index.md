@@ -9,6 +9,7 @@ theme: gaia
         --color-background: #282c34;
         --color-foreground: #949aa8;
         font-family: 'JetBrains Mono', monospace;
+        color-scheme: dark;
         
     }
 
@@ -125,7 +126,7 @@ Suddenly there's a problem with the build without much time to fix it.
 "CI/CD is a method to frequently deliver apps to customers by introducing **automation** into the stages of app development."
 
 ---
-# Development and Operations(DevOps) Pipeline <!--fit-->
+# Development and Operations Pipeline <!--fit-->
 ![center h:540](https://i.imgur.com/NyXi2Xj.png) 
 
 ---
@@ -156,19 +157,56 @@ The game in the example repository takes around **4 minutes** per **platform** (
 
 With the **free 2000 CI/CD minutes limit** that equates to a maximum of around **160 builds per month**! 
 
+
 ![bg right:40% h:720](https://i.imgur.com/iIEdGWQ.jpg)
 
 ---
+
+# What is this wizardry? 🧙‍♂️
+<style scoped>
+pre {
+   font-size: 0.7rem;
+}
+</style>
+
+```
+- uses: actions/cache@v2
+    with:
+        path: Library
+        key: Library-${{ matrix.targetPlatform }}
+        restore-keys: Library- 
+- uses: game-ci/unity-builder@v2
+    env:
+        UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+    with:
+        targetPlatform: ${{ matrix.targetPlatform }}
+```
+Quick to implement + easy to use = **abstraction**.
+
+If you're interested in learning more, have a look at [Docker](https://www.docker.com/), which solves the problem of "It doesn't work on my machine!". 
+
+![bg right:25% h:400](https://media.giphy.com/media/0KBiC2Q6Phwz2dkjCj/giphy.gif)
+
+
+
+
+
+
+
+
+---
 # Great! How do I get started? <!--fit-->
-## Easy Peasy!
+### Easy Peasy!
 
-Have a look at this repository and follow the instructions.
-
-Customize it to your use case.
-
-Keep in mind this is **highly simplified** and **not** what you would do in a **proffessional environment**. Ideally you would a have dev branch and work on new features in there and then create releases, resolve issues for new features etc, etc. 
+* Have a look at this repository and follow the instructions.
+* Customize it to your use case.
 
 https://github.com/Macawls/UnityDeployExample
+
+![bg right:30%](https://media.giphy.com/media/rmi45iyhIPuRG/giphy.gif)
+<br>
+
+#### Discliamer: The contents of the repo is highly simplified and not what you would do in a proffessional environment.
 
 
 ---
