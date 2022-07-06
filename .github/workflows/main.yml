@@ -1,13 +1,14 @@
 name: Build, Test and Deploy 💻
 
 on:  # events that will trigger workflow
-  push: 
+  push:
+    paths-ignore:
+      - '**.md' #ignore readme and presentation changes
   pull_request: 
     branches:
       - based
     paths-ignore:
-      - '.github/README.md' #ignore readme changes
-
+      - '**.md' 
 
 jobs:
   buildForAllSupportedPlatforms:
