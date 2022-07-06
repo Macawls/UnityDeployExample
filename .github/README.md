@@ -1,5 +1,7 @@
 <h2 align="center">Docs and Resources</h2><hr/>
 
+[![Build, Test and Deploy 💻](https://github.com/Macawls/unitydeployexample/actions/workflows/main.yml/badge.svg?branch=based)](https://github.com/Macawls/unitydeployexample/actions/workflows/main.yml)
+
 * [Game CI Link](https://game.ci/)
 * [Youtube Tutorial by Rohan Mayya](https://youtu.be/JjKCy3H0A30)
 * [Marp for Presentation](https://marp.app/)
@@ -36,10 +38,9 @@ git status
 
 ![](https://cdn.frankerfacez.com/emoticon/218530/2)
 ### Testing
-It's best practice to test your project before building your game to increase reliability.
-If you would like to look into running tests, have a look at [Test Runner](https://game.ci/docs/github/test-runner). \
-\
-To simplify the process I've omitted testing. 
+
+
+It's best practice to test your project before building your game to increase reliability and confidence in merging changes. 
 
 <h2 align="center">Unity License Setup</h2><hr/>
 
