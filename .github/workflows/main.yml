@@ -1,14 +1,14 @@
 name: Build, Test and Deploy 💻
 
-on:  # events that will trigger workflow
+on:
   push:
     branches:
       - based
     paths-ignore:
-      - '**.md' #ignore readme and presentation changes
-  pull_request: 
+      - '**.md'
+  pull_request:
     paths-ignore:
-      - '**.md' 
+      - '**.md'
 
 jobs:
   buildForAllSupportedPlatforms:
@@ -42,7 +42,14 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           # https://docs.github.com/en/actions/security-guides/automatic-token-authentication#about-the-github_token-secret
-          githubToken: ${{ secrets.GITHUB_TOKEN }} # used to view test results 
+          githubToken: ${{ secrets.GITHUB_TOKEN }} # used to view test results
+
+      # Upload Test results as artifacts
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: Test results
+          path: artifacts
       
       # Build Unity Game
       - uses: game-ci/unity-builder@v2
