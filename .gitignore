@@ -10,6 +10,10 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
+# https://github.com/game-ci/unity-builder/issues/241#issuecomment-869487714 
+# ignore artifacts to overcome dirty branch build issue
+/artifacts
+
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
