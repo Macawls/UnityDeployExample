@@ -18,7 +18,7 @@ git init
 Use a .gitignore file to tell git which files to ignore. \
 Here's a repo with a bunch of templates https://github.com/github/gitignore
 ```
-wget https://macawls.dev/unityfiles/gitignore -o ".gitignore"
+wget https://raw.githubusercontent.com/Macawls/unitydeployexample/based/.gitignore -o ".gitignore"
 ```
 [Download Git LFS](https://git-lfs.github.com/) \
 Install LFS in your repository:
@@ -27,7 +27,7 @@ git lfs install
 ```
 Use a .gitattributes file for LFS to tell it which files to track.
 ```
-wget https://macawls.dev/unityfiles/gitattributes -o ".gitattributes"
+wget https://raw.githubusercontent.com/Macawls/unitydeployexample/based/.gitattributes -o ".gitattributes"
 ```
 All done! Have a look at which files are going to be tracked using:
 ```
