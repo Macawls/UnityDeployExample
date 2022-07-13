@@ -89,7 +89,19 @@ ul li::before {
 * RTFM -> [Read the fucking manual](http://readthefuckingmanual.com/)
 
 ---
+# Source Control is Important! <!--fit-->
 
+For the love of all things holy **please use source control** when making a game in a team. 
+![bg right:40% h:750 drop-shadow](https://media.giphy.com/media/cnhpl4IeYgU7MCBdV2/giphy.gif)
+
+### Git is the most popular. 
+
+Other good **options** for Unity include:
+* [Plastic SCM(Built In)](https://docs.unity3d.com/Manual/PlasticSCMPlugin.html)
+* [Perforce](https://www.perforce.com/)
+
+
+---
 # Lets outline the problem 
 
 You're working with a **team of four** during the **Game Jam**.
@@ -101,7 +113,11 @@ Bob wants to **playtest** Timmy's **changes**.
 ![bg left:40% h:500 drop-shadow](https://media.giphy.com/media/XMC67UHffXHrUIJGpn/giphy.gif)
 
 
---- 
+---
+
+
+
+
 
 # The problem continued
 
@@ -117,13 +133,16 @@ Suddenly there's a problem with the build without much time to fix it.
 # The Solution! What is CI/CD? <!--fit-->
 
 
-![bg left:33% h:300](https://i.kym-cdn.com/photos/images/original/001/385/979/26b.png)
+![bg left:27% h:300](https://i.kym-cdn.com/photos/images/original/001/385/979/26b.png)
 
 * CI - Continous Integration
 * CD - Continous Deployment
 
 ### Definiton
 "CI/CD is a method to frequently deliver apps to customers by introducing **automation** into the stages of app development."
+
+### Why is it useful?
+Deliver improvements and fixes **MUCH** faster and have the peace of mind your code is build ready and safe for production.
 
 ---
 # Development and Operations Pipeline <!--fit-->
@@ -203,10 +222,10 @@ If you're interested in learning more, have a look at [Docker](https://www.docke
 
 https://github.com/Macawls/UnityDeployExample
 
-![bg right:30%](https://media.giphy.com/media/rmi45iyhIPuRG/giphy.gif)
+![bg right:25%](https://media.giphy.com/media/rmi45iyhIPuRG/giphy.gif)
 <br>
 
-#### Discliamer: The contents of the repo is highly simplified and not what you would do in a proffessional environment.
+#### Discliamer: The contents of this repository is highly simplified.
 
 
 ---
