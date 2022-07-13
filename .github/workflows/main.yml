@@ -5,10 +5,10 @@ on:
     branches:
       - based
     paths-ignore:
-      - '**.md'
+      - '.github/workflows/README.md'
   pull_request:
     paths-ignore:
-      - '**.md'
+      - '.github/workflows/README.md'
 
 jobs:
   buildForAllSupportedPlatforms:
