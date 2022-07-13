@@ -3,6 +3,8 @@ name: marp-to-pages
 on:
   push:
     branches: [ based ]
+    paths:
+      - 'presentation/**'
 
 jobs:
   build:
