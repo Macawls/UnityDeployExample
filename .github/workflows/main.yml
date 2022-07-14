@@ -10,7 +10,7 @@ on:
   pull_request:
     paths-ignore:
       - '.github/README.md'
-      - 'presentation/index.md'
+      - 'presentation/**'
 
 jobs:
   buildForAllSupportedPlatforms:

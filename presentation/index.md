@@ -91,7 +91,8 @@ ul li::before {
 ---
 # Source Control is Important! <!--fit-->
 
-For the love of all things holy **please use source control** when making a game in a team. 
+**Use source control** when making a game in a team. 
+
 ![bg right:40% h:750 drop-shadow](https://media.giphy.com/media/cnhpl4IeYgU7MCBdV2/giphy.gif)
 
 ### Git is the most popular. 
