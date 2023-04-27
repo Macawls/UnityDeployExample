@@ -1,6 +1,6 @@
 <h2 align="center">Presentation</h2><hr/>
 
-https://macawls.dev/unitydeployexample/
+https://macawls.dev/UnityDeployExample/
 
 <h2 align="center">Docs and Resources</h2><hr/>
 
